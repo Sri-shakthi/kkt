@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, MessageCircle, Star, Heart, Leaf, ShieldCheck, Instagram, ChevronRight } from 'lucide-react';
+import { ArrowRight, MessageCircle, Star, Heart, Leaf, ShieldCheck, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import ProductCard from '@/components/ProductCard';
@@ -11,7 +11,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import { getBestsellers, categories, generateGeneralWhatsAppLink, INSTAGRAM_HANDLE, BRAND_COLOR } from '@/data/products';
+import { getBestsellers, categories, generateGeneralWhatsAppLink, BRAND_COLOR } from '@/data/products';
 
 const Home = () => {
   const heroRef = useRef<HTMLDivElement>(null);

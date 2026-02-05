@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Instagram, MessageCircle, MapPin, Clock, Phone } from 'lucide-react';
-import { generateGeneralWhatsAppLink, INSTAGRAM_HANDLE, BRAND_COLOR } from '@/data/products';
+import { generateGeneralWhatsAppLink, INSTAGRAM_HANDLE } from '@/data/products';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

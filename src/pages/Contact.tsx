@@ -1,42 +1,11 @@
-import { useState, useEffect } from 'react';
-import { MessageCircle, MapPin, Clock, Phone, Instagram, Mail, Send, CheckCircle } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { toast } from 'sonner';
+import { useEffect } from 'react';
+import { MapPin, Clock, Phone, Instagram, Mail, CheckCircle } from 'lucide-react';
 import { generateGeneralWhatsAppLink, INSTAGRAM_HANDLE, BRAND_COLOR } from '@/data/products';
 
 const Contact = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    setTimeout(() => {
-      toast.success('Message sent successfully! We\'ll get back to you soon.');
-      setFormData({ name: '', phone: '', message: '' });
-      setIsSubmitting(false);
-    }, 1500);
-  };
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData((prev) => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
 
   const contactInfo = [
     {
