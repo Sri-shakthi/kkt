@@ -143,16 +143,6 @@ const ProductDetails = () => {
                 {product.description}
               </p>
 
-              {/* Price Range */}
-              <div className="mb-6">
-                <span className="text-2xl font-bold text-[#1A1A1A]">
-                  {product.priceRange}
-                </span>
-                <span className="text-[#6E6A63] text-sm ml-2">
-                  (Prices vary by size)
-                </span>
-              </div>
-
               {/* Size Selection */}
               <div className="mb-6">
                 <label className="block text-sm font-medium text-[#1A1A1A] mb-3">
@@ -187,7 +177,7 @@ const ProductDetails = () => {
                   Order on WhatsApp
                 </Button>
                 <p className="text-sm text-[#6E6A63] mt-3">
-                  We&apos;ll reply with exact price and availability
+                  We&apos;ll reply with availability and order confirmation
                 </p>
               </div>
 

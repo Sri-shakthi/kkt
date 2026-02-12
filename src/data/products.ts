@@ -8,9 +8,16 @@ export const WHATSAPP_NUMBER = "917708755348";
 
 // Your Instagram handle (without @)
 export const INSTAGRAM_HANDLE = "kkt_kktraders";
+export const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61556282679743";
+export const TWITTER_URL = "https://twitter.com/KKTChennai";
+export const PINTEREST_URL = "https://in.pinterest.com/kabalikarpagambaltraders/kabali-karpagambal-traders/";
+export const GOOGLE_BUSINESS_URL = "https://www.google.com/search?q=Kabali+Karpagambal+Traders-East+Tambaram&stick=H4sIAAAAAAAA_-NgU1I1qDBONDUyTTMxNTc0MwCyja0MKlINDZJTjJPNkpNTUxJNDS0XsWp4JyYl5mQqeCcWFSSmJ-YCOQohRYkpqUXFuq6JxSUKISCxosRcABddfr1UAAAA&hl=en&mat=CSONC3cAZNVcElcB7PxHsckO-2q0JFVUj95tdhrQjTTkFwOBbkGuj2-F2607u14pM_7kfArKPeXTluH97qavBOVYm6K-6JP42hU9rN4mEgQ915w1bx-XlFboYD8vR0rCnwI&authuser=0";
+export const YOUTUBE_SHORT_1_URL = "https://www.youtube.com/shorts/nyWyQsIWaPU";
+export const YOUTUBE_SHORT_2_URL = "https://www.youtube.com/shorts/Rs7RDsS4L2Y";
 
 // Primary brand color (green accent) - Change this to match your logo
 export const BRAND_COLOR = "#2E5A3D";
+export const BUTTER_IMAGE_URL = "https://ik.imagekit.io/qbnsahjpu/assets/KKT%20Traders/butter.png?updatedAt=1770871557753";
 
 // ============================================
 // PRODUCT TYPES
@@ -23,7 +30,6 @@ export interface Product {
   description: string;
   shortDescription: string;
   sizes: string[];
-  priceRange: string;
   tags: string[];
   images: string[];
   ingredients?: string;
@@ -41,18 +47,17 @@ export const products: Product[] = [
   // SPICES (5 items)
   {
     id: "spice-001",
-    name: "Guntur Chili Powder",
+    name: "Uthukuli Butter",
     category: "spices",
-    description: "Authentic Guntur chili powder made from sun-dried red chilies. Roasted and ground in small batches for maximum flavor and heat. Perfect for all your Indian cooking needs.",
-    shortDescription: "Authentic Guntur chili powder, roasted and ground fresh",
+    description: "Rich and creamy Uthukuli butter churned in small batches for authentic taste and aroma. Perfect for chapati, dosai, toast, and everyday cooking.",
+    shortDescription: "Traditional Uthukuli butter, creamy and fresh",
     sizes: ["200g", "500g", "1kg"],
-    priceRange: "₹80 - ₹350",
-    tags: ["Bestseller", "Spicy"],
-    images: ["/images/products/chili-powder.jpg"],
-    ingredients: "100% Guntur red chilies",
-    storageInfo: "Store in airtight container. Best before 6 months from packing.",
+    tags: ["Bestseller", "Fresh"],
+    images: [BUTTER_IMAGE_URL],
+    ingredients: "Pasteurized Cream, Salt",
+    storageInfo: "Refrigerate after opening. Best before 3 months from packing.",
     isBestseller: true,
-    isSpicy: true,
+    isSpicy: false,
   },
   {
     id: "spice-002",
@@ -61,7 +66,6 @@ export const products: Product[] = [
     description: "Freshly ground coriander powder with a sweet, citrusy aroma. Made from whole coriander seeds roasted to perfection.",
     shortDescription: "Freshly ground coriander with sweet, citrusy aroma",
     sizes: ["200g", "500g"],
-    priceRange: "₹60 - ₹140",
     tags: ["Fresh"],
     images: ["/images/products/coriander-powder.jpg"],
     ingredients: "100% Coriander seeds",
@@ -75,7 +79,6 @@ export const products: Product[] = [
     description: "Pure turmeric powder with high curcumin content. Sourced from local farms and ground fresh for vibrant color and earthy flavor.",
     shortDescription: "Pure turmeric with high curcumin content",
     sizes: ["100g", "250g", "500g"],
-    priceRange: "₹50 - ₹180",
     tags: ["Organic"],
     images: ["/images/products/turmeric-powder.jpg"],
     ingredients: "100% Turmeric roots",
@@ -89,7 +92,6 @@ export const products: Product[] = [
     description: "Traditional South Indian sambar powder with the perfect blend of roasted lentils, chilies, and aromatic spices. Makes authentic tasting sambar every time.",
     shortDescription: "Traditional South Indian sambar masala blend",
     sizes: ["200g", "500g"],
-    priceRange: "₹90 - ₹200",
     tags: ["Bestseller"],
     images: ["/images/products/sambar-powder.jpg"],
     ingredients: "Coriander, Red Chilies, Bengal Gram, Urad Dal, Cumin, Fenugreek, Mustard, Curry Leaves, Asafoetida",
@@ -103,7 +105,6 @@ export const products: Product[] = [
     description: "Aromatic rasam powder for that perfect tangy, spicy South Indian soup. Made with pepper, cumin, and traditional spices.",
     shortDescription: "Aromatic rasam powder for tangy South Indian soup",
     sizes: ["100g", "200g"],
-    priceRange: "₹70 - ₹130",
     tags: ["Spicy"],
     images: ["/images/products/rasam-powder.jpg"],
     ingredients: "Black Pepper, Cumin, Coriander, Red Chilies, Curry Leaves, Turmeric",
@@ -120,10 +121,9 @@ export const products: Product[] = [
     description: "Traditional Andhra-style mango pickle made with raw mangoes, mustard powder, and aromatic spices. A perfect balance of tanginess and heat.",
     shortDescription: "Traditional Andhra-style mango pickle with mustard",
     sizes: ["250g", "500g", "1kg"],
-    priceRange: "₹120 - ₹400",
     tags: ["Bestseller", "Spicy"],
     images: ["/images/products/mango-pickle.jpg"],
-    ingredients: "Raw Mango, Mustard Powder, Red Chili Powder, Salt, Fenugreek, Garlic, Sesame Oil",
+    ingredients: "Raw Mango, Mustard Powder, Red Chili Flakes, Salt, Fenugreek, Garlic, Sesame Oil",
     storageInfo: "Refrigerate after opening. Use dry spoon. Best before 12 months.",
     isBestseller: true,
     isSpicy: true,
@@ -135,10 +135,9 @@ export const products: Product[] = [
     description: "Flavorful garlic pickle with whole garlic cloves marinated in tangy, spicy masala. A perfect accompaniment to any meal.",
     shortDescription: "Whole garlic cloves in tangy, spicy masala",
     sizes: ["200g", "400g"],
-    priceRange: "₹100 - ₹180",
     tags: ["Spicy"],
     images: ["/images/products/garlic-pickle.jpg"],
-    ingredients: "Garlic, Red Chili Powder, Tamarind, Salt, Jaggery, Mustard, Sesame Oil",
+    ingredients: "Garlic, Red Chili Flakes, Tamarind, Salt, Jaggery, Mustard, Sesame Oil",
     storageInfo: "Store in cool place. Refrigerate after opening. Best before 10 months.",
     isBestseller: false,
     isSpicy: true,
@@ -150,10 +149,9 @@ export const products: Product[] = [
     description: "Tangy lemon pickle with the perfect balance of sour, salty, and spicy flavors. Made with fresh lemons and traditional spices.",
     shortDescription: "Tangy lemon pickle with perfect sour-spicy balance",
     sizes: ["250g", "500g"],
-    priceRange: "₹90 - ₹160",
     tags: ["New"],
     images: ["/images/products/lemon-pickle.jpg"],
-    ingredients: "Lemon, Salt, Red Chili Powder, Turmeric, Mustard, Fenugreek",
+    ingredients: "Lemon, Salt, Red Chili Flakes, Turmeric, Mustard, Fenugreek",
     storageInfo: "Refrigerate after opening. Best before 12 months.",
     isBestseller: false,
     isNew: true,
@@ -166,7 +164,6 @@ export const products: Product[] = [
     description: "A medley of fresh vegetables pickled in aromatic spices. Contains carrots, cauliflower, turnip, and green chilies.",
     shortDescription: "Medley of vegetables in aromatic spices",
     sizes: ["300g", "600g"],
-    priceRange: "₹110 - ₹200",
     tags: ["Fresh"],
     images: ["/images/products/mixed-veg-pickle.jpg"],
     ingredients: "Carrot, Cauliflower, Turnip, Green Chilies, Ginger, Mustard, Fenugreek, Salt, Oil",
@@ -180,7 +177,6 @@ export const products: Product[] = [
     description: "Authentic Andhra gongura (sorrel leaves) pickle with its distinctive tangy flavor. A regional favorite.",
     shortDescription: "Authentic Andhra gongura with distinctive tang",
     sizes: ["250g", "500g"],
-    priceRange: "₹100 - ₹180",
     tags: ["Bestseller", "Spicy"],
     images: ["/images/products/gongura-pickle.jpg"],
     ingredients: "Gongura Leaves, Red Chilies, Garlic, Cumin, Mustard, Salt, Oil",
@@ -197,10 +193,9 @@ export const products: Product[] = [
     description: "Grated mango thokku - a thick, spicy, and tangy condiment perfect with rice, roti, or as a side. Made with raw mangoes and aromatic spices.",
     shortDescription: "Thick, spicy grated mango condiment",
     sizes: ["200g", "400g"],
-    priceRange: "₹100 - ₹180",
     tags: ["Bestseller", "Spicy"],
     images: ["/images/products/mango-thokku.jpg"],
-    ingredients: "Raw Mango, Red Chili Powder, Mustard, Fenugreek, Salt, Jaggery, Oil",
+    ingredients: "Raw Mango, Red Chili Flakes, Mustard, Fenugreek, Salt, Jaggery, Oil",
     storageInfo: "Refrigerate after opening. Best before 6 months.",
     isBestseller: true,
     isSpicy: true,
@@ -212,7 +207,6 @@ export const products: Product[] = [
     description: "Sweet and spicy tomato thokku slow-cooked to perfection. A versatile condiment that pairs well with everything.",
     shortDescription: "Sweet and spicy slow-cooked tomato condiment",
     sizes: ["200g", "400g"],
-    priceRange: "₹90 - ₹160",
     tags: ["Fresh"],
     images: ["/images/products/tomato-thokku.jpg"],
     ingredients: "Tomatoes, Red Chilies, Garlic, Ginger, Salt, Jaggery, Oil",
@@ -227,7 +221,6 @@ export const products: Product[] = [
     description: "Aromatic ginger thokku with the warmth of fresh ginger and spices. Great for digestion and flavor.",
     shortDescription: "Aromatic ginger condiment with warming spices",
     sizes: ["150g", "300g"],
-    priceRange: "₹80 - ₹150",
     tags: ["New"],
     images: ["/images/products/ginger-thokku.jpg"],
     ingredients: "Ginger, Tamarind, Red Chilies, Jaggery, Salt, Mustard, Oil",
@@ -243,7 +236,6 @@ export const products: Product[] = [
     description: "Caramelized onion thokku with a perfect balance of sweet and savory flavors. A unique and delicious condiment.",
     shortDescription: "Caramelized onion with sweet-savory balance",
     sizes: ["200g", "400g"],
-    priceRange: "₹100 - ₹180",
     tags: ["Fresh"],
     images: ["/images/products/onion-thokku.jpg"],
     ingredients: "Onions, Tamarind, Red Chilies, Jaggery, Salt, Oil",
@@ -259,7 +251,6 @@ export const products: Product[] = [
     description: "Traditional sun-dried rice vadagam that puffs up beautifully when fried. Crispy, light, and perfect with meals.",
     shortDescription: "Traditional sun-dried rice vadagam",
     sizes: ["100g", "250g", "500g"],
-    priceRange: "₹60 - ₹250",
     tags: ["Bestseller"],
     images: ["/images/products/rice-vadagam.jpg"],
     ingredients: "Rice Flour, Salt, Cumin, Sesame",
@@ -273,7 +264,6 @@ export const products: Product[] = [
     description: "Crispy sago vadam made from pure sago pearls. A traditional South Indian accompaniment that's light and crunchy.",
     shortDescription: "Crispy sago vadam from pure sago pearls",
     sizes: ["100g", "250g"],
-    priceRange: "₹70 - ₹160",
     tags: ["Fresh"],
     images: ["/images/products/sago-vadam.jpg"],
     ingredients: "Sago, Salt, Cumin",
@@ -287,7 +277,6 @@ export const products: Product[] = [
     description: "Sun-dried chilies soaked in buttermilk and salt - the perfect accompaniment for curd rice. Mildly spicy and tangy.",
     shortDescription: "Buttermilk-soaked sun-dried chilies",
     sizes: ["50g", "100g"],
-    priceRange: "₹50 - ₹90",
     tags: ["Spicy"],
     images: ["/images/products/chili-vathal.jpg"],
     ingredients: "Green Chilies, Buttermilk, Salt",
@@ -304,10 +293,9 @@ export const products: Product[] = [
     description: "Crunchy peanuts coated in spicy rice flour batter and fried to perfection. A perfect tea-time snack.",
     shortDescription: "Crunchy spicy-coated fried peanuts",
     sizes: ["200g", "400g"],
-    priceRange: "₹80 - ₹150",
     tags: ["Bestseller", "Spicy"],
     images: ["/images/products/masala-peanuts.jpg"],
-    ingredients: "Peanuts, Rice Flour, Gram Flour, Red Chili Powder, Salt, Asafoetida",
+    ingredients: "Peanuts, Rice Flour, Gram Flour, Red Chili Flakes, Salt, Asafoetida",
     storageInfo: "Store in airtight container. Best before 2 months.",
     isBestseller: true,
     isSpicy: true,
@@ -319,7 +307,6 @@ export const products: Product[] = [
     description: "Premium cashews lightly roasted with a hint of salt. Crunchy, buttery, and irresistible.",
     shortDescription: "Premium lightly roasted salted cashews",
     sizes: ["100g", "250g", "500g"],
-    priceRange: "₹150 - ₹650",
     tags: ["Fresh"],
     images: ["/images/products/roasted-cashews.jpg"],
     ingredients: "Cashews, Salt, Ghee",
@@ -333,10 +320,9 @@ export const products: Product[] = [
     description: "Cashews roasted with a blend of aromatic spices. A premium snack with a kick of flavor.",
     shortDescription: "Cashews roasted with aromatic spices",
     sizes: ["100g", "250g"],
-    priceRange: "₹180 - ₹420",
     tags: ["New", "Spicy"],
     images: ["/images/products/masala-cashews.jpg"],
-    ingredients: "Cashews, Red Chili Powder, Black Pepper, Cumin, Salt, Ghee",
+    ingredients: "Cashews, Red Chili Flakes, Black Pepper, Cumin, Salt, Ghee",
     storageInfo: "Store in airtight container. Best before 2 months.",
     isBestseller: false,
     isNew: true,
@@ -372,8 +358,8 @@ export const categories = [
 
 export const generateWhatsAppLink = (productName: string, size?: string) => {
   const message = size 
-    ? `Hi! I want to order: ${productName} - ${size}. Please share price and availability.`
-    : `Hi! I want to order: ${productName}. Please share price and availability.`;
+    ? `Hi! I want to order: ${productName} - ${size}. Please share availability.`
+    : `Hi! I want to order: ${productName}. Please share availability.`;
   
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 };

@@ -1,6 +1,15 @@
 import { Link } from 'react-router-dom';
-import { Instagram, MessageCircle, MapPin, Clock, Phone } from 'lucide-react';
-import { generateGeneralWhatsAppLink, INSTAGRAM_HANDLE } from '@/data/products';
+import { Instagram, MessageCircle, MapPin, Clock, Phone, Facebook, Twitter, Youtube } from 'lucide-react';
+import {
+  generateGeneralWhatsAppLink,
+  INSTAGRAM_HANDLE,
+  FACEBOOK_URL,
+  TWITTER_URL,
+  PINTEREST_URL,
+  GOOGLE_BUSINESS_URL,
+  YOUTUBE_SHORT_1_URL,
+  YOUTUBE_SHORT_2_URL,
+} from '@/data/products';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -40,20 +49,75 @@ const Footer = () => {
             </p>
             <div className="flex space-x-4">
               <a
+                href={FACEBOOK_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#6E6A63] hover:text-[#2E5A3D] hover:shadow-md transition-all"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href={TWITTER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#6E6A63] hover:text-[#2E5A3D] hover:shadow-md transition-all"
+                aria-label="Twitter"
+              >
+                <Twitter className="w-5 h-5" />
+              </a>
+              <a
                 href={`https://instagram.com/${INSTAGRAM_HANDLE}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#6E6A63] hover:text-[#2E5A3D] hover:shadow-md transition-all"
+                aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href={YOUTUBE_SHORT_1_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#6E6A63] hover:text-[#2E5A3D] hover:shadow-md transition-all"
+                aria-label="YouTube"
+              >
+                <Youtube className="w-5 h-5" />
               </a>
               <a
                 href={generateGeneralWhatsAppLink()}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-[#6E6A63] hover:text-[#2E5A3D] hover:shadow-md transition-all"
+                aria-label="WhatsApp"
               >
                 <MessageCircle className="w-5 h-5" />
+              </a>
+            </div>
+            <div className="mt-4 space-y-2">
+              <a
+                href={PINTEREST_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-[#6E6A63] text-sm hover:text-[#2E5A3D] transition-colors"
+              >
+                Pinterest
+              </a>
+              <a
+                href={GOOGLE_BUSINESS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-[#6E6A63] text-sm hover:text-[#2E5A3D] transition-colors"
+              >
+                Google Business Profile
+              </a>
+              <a
+                href={YOUTUBE_SHORT_2_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block text-[#6E6A63] text-sm hover:text-[#2E5A3D] transition-colors"
+              >
+                YouTube Short 2
               </a>
             </div>
           </div>

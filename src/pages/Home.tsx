@@ -11,7 +11,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import { getBestsellers, categories, generateGeneralWhatsAppLink, BRAND_COLOR } from '@/data/products';
+import { getBestsellers, categories, generateGeneralWhatsAppLink, BRAND_COLOR, BUTTER_IMAGE_URL } from '@/data/products';
 
 const Home = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -43,8 +43,8 @@ const Home = () => {
       name: 'Divya',
       location: 'Hyderabad',
       rating: 5,
-      text: 'I reorder the chili powder every month. Best quality Ive found!',
-      product: 'Guntur Chili Powder',
+      text: 'I reorder the Uthukuli butter every month. Rich taste and great quality!',
+      product: 'Uthukuli Butter',
     },
   ];
 
@@ -152,9 +152,9 @@ const Home = () => {
             <div className="relative">
               <div className="relative z-10">
                 <img
-                  src="/images/hero-jar.jpg"
-                  alt="Homemade Spices"
-                  className="w-full max-w-md mx-auto rounded-3xl shadow-2xl"
+                  src={BUTTER_IMAGE_URL}
+                  alt="Uthukuli Butter"
+                  className="w-full max-w-lg lg:max-w-xl mx-auto rounded-3xl shadow-2xl"
                 />
               </div>
               {/* Floating Elements */}

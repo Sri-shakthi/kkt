@@ -103,11 +103,8 @@ const ProductCard = ({ product }: ProductCardProps) => {
           </div>
         </div>
 
-        {/* Price & CTA */}
-        <div className="flex items-center justify-between">
-          <span className="text-[#1A1A1A] font-semibold text-sm">
-            {product.priceRange}
-          </span>
+        {/* CTA */}
+        <div className="flex items-center justify-end">
           <a
             href={generateWhatsAppLink(product.name, selectedSize)}
             target="_blank"

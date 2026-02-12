@@ -1,6 +1,27 @@
 import { useEffect } from 'react';
-import { Heart, Leaf, ShieldCheck, Award, Users, ChefHat } from 'lucide-react';
-import { BRAND_COLOR } from '@/data/products';
+import {
+  Heart,
+  Leaf,
+  ShieldCheck,
+  Award,
+  Users,
+  ChefHat,
+  Facebook,
+  Twitter,
+  PinIcon,
+  Globe,
+  Youtube,
+  ExternalLink,
+} from 'lucide-react';
+import {
+  BRAND_COLOR,
+  FACEBOOK_URL,
+  TWITTER_URL,
+  PINTEREST_URL,
+  GOOGLE_BUSINESS_URL,
+  YOUTUBE_SHORT_1_URL,
+  YOUTUBE_SHORT_2_URL,
+} from '@/data/products';
 
 const About = () => {
   useEffect(() => {
@@ -37,6 +58,15 @@ const About = () => {
     { number: '100%', label: 'Natural' },
   ];
 
+  const connectLinks = [
+    { label: 'Facebook', url: FACEBOOK_URL, icon: Facebook, color: 'text-[#1877F2]' },
+    { label: 'Twitter', url: TWITTER_URL, icon: Twitter, color: 'text-[#1DA1F2]' },
+    { label: 'Pinterest', url: PINTEREST_URL, icon: PinIcon, color: 'text-[#BD081C]' },
+    { label: 'Google Business', url: GOOGLE_BUSINESS_URL, icon: Globe, color: 'text-[#0F9D58]' },
+    { label: 'YouTube Short 1', url: YOUTUBE_SHORT_1_URL, icon: Youtube, color: 'text-[#FF0000]' },
+    { label: 'YouTube Short 2', url: YOUTUBE_SHORT_2_URL, icon: Youtube, color: 'text-[#FF0000]' },
+  ];
+
   return (
     <div className="min-h-screen bg-[#F6F2EA] pt-24 pb-16">
       {/* Hero Section */}
@@ -48,14 +78,19 @@ const About = () => {
                 Our Story
               </h1>
               <p className="text-lg text-[#6E6A63] mb-6 leading-relaxed">
-                What started as a small kitchen experiment has grown into a passion for sharing 
-                the authentic taste of homemade goodness. We believe that food made with love 
-                tastes better, and we put that love into every jar we create.
+                Kabali Karpagambal Traders was initiated in 2020 during the peak corona season
+                with the main motive of spreading pure quality ghee to every house at an
+                affordable price, so everyone can enjoy delicious food.
               </p>
               <p className="text-lg text-[#6E6A63] mb-6 leading-relaxed">
-                Our journey began with a simple goal: to bring back the traditional flavors 
-                that were slowly disappearing from our modern kitchens. Today, we&apos;re proud 
-                to serve hundreds of customers who share our love for authentic, homemade food.
+                Later, as people became more health conscious, we expanded into healthy organic
+                products. Our business is a collection of products from special places known for
+                preparing each item in its authentic, traditional way.
+              </p>
+              <p className="text-lg text-[#6E6A63] mb-6 leading-relaxed">
+                Satisfying customers is our ultimate motive. Customers are the king of every
+                business, and their requirements are essential to everything we do. We avoid
+                branded products where possible and focus on homemade and healthier options.
               </p>
               <div className="flex items-center gap-4">
                 <div
@@ -66,7 +101,7 @@ const About = () => {
                 </div>
                 <div>
                   <p className="font-semibold text-[#1A1A1A]">Family Recipe</p>
-                  <p className="text-sm text-[#6E6A63]">Since 2019</p>
+                  <p className="text-sm text-[#6E6A63]">Since 2020</p>
                 </div>
               </div>
             </div>
@@ -245,6 +280,43 @@ const About = () => {
                   className="rounded-2xl shadow-lg max-w-sm"
                 />
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Connect Section */}
+      <section className="mb-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-3xl p-8 md:p-10 shadow-sm bg-gradient-to-br from-white via-[#FBF7EF] to-[#F2E9D7] border border-[#E8DDCA]">
+            <div className="absolute -top-12 -right-10 w-44 h-44 rounded-full bg-[#2E5A3D]/10 blur-2xl" />
+            <div className="absolute -bottom-16 -left-10 w-52 h-52 rounded-full bg-amber-200/30 blur-2xl" />
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#1A1A1A] mb-4">
+              Connect With Us
+            </h2>
+            <p className="text-[#6E6A63] mb-6 max-w-2xl">
+              Follow our latest updates and reviews.
+            </p>
+            <div className="relative z-10 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {connectLinks.map((item) => (
+                <a
+                  key={item.label}
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group rounded-2xl border border-white/70 bg-white/80 backdrop-blur px-4 py-4 text-[#1A1A1A] hover:border-[#2E5A3D]/40 hover:shadow-md hover:-translate-y-0.5 transition-all"
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-xl bg-[#F6F2EA] flex items-center justify-center">
+                        <item.icon className={`w-5 h-5 ${item.color}`} />
+                      </div>
+                      <span className="font-medium text-sm">{item.label}</span>
+                    </div>
+                    <ExternalLink className="w-4 h-4 text-[#6E6A63] group-hover:text-[#2E5A3D]" />
+                  </div>
+                </a>
+              ))}
             </div>
           </div>
         </div>

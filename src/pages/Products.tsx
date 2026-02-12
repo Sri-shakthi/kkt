@@ -8,7 +8,7 @@ import ProductCard from '@/components/ProductCard';
 import { products, categories, BRAND_COLOR } from '@/data/products';
 
 
-type SortOption = 'popular' | 'new' | 'price-low' | 'price-high';
+type SortOption = 'popular' | 'new';
 
 const Products = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -63,20 +63,6 @@ const Products = () => {
         break;
       case 'new':
         result.sort((a, b) => (b.isNew ? 1 : 0) - (a.isNew ? 1 : 0));
-        break;
-      case 'price-low':
-        result.sort((a, b) => {
-          const aPrice = parseInt(a.priceRange.replace(/[^0-9]/g, ''));
-          const bPrice = parseInt(b.priceRange.replace(/[^0-9]/g, ''));
-          return aPrice - bPrice;
-        });
-        break;
-      case 'price-high':
-        result.sort((a, b) => {
-          const aPrice = parseInt(a.priceRange.replace(/[^0-9]/g, ''));
-          const bPrice = parseInt(b.priceRange.replace(/[^0-9]/g, ''));
-          return bPrice - aPrice;
-        });
         break;
     }
 
@@ -171,8 +157,6 @@ const Products = () => {
               >
                 <option value="popular">Most Popular</option>
                 <option value="new">Newest</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="price-high">Price: High to Low</option>
               </select>
               <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6E6A63] pointer-events-none" />
             </div>
