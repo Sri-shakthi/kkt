@@ -1,0 +1,10 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'>
+  <rect width='800' height='800' fill='#f2f8ee'/>
+  <ellipse cx='400' cy='540' rx='220' ry='130' fill='#bcd59b' stroke='#4f7a3a' stroke-width='14'/>
+  <circle cx='320' cy='500' r='52' fill='#d6553e'/>
+  <circle cx='410' cy='470' r='48' fill='#8ab34f'/>
+  <circle cx='490' cy='520' r='56' fill='#f08f3b'/>
+  <rect x='250' y='220' width='300' height='80' rx='40' fill='#6fa04d'/>
+  <text x='400' y='273' text-anchor='middle' font-family='Verdana' font-size='38' fill='#fff'>Thokku &amp; Mix</text>
+  <text x='400' y='730' text-anchor='middle' font-family='Verdana' font-size='58' fill='#45662f'>Homestyle Mix</text>
+</svg>

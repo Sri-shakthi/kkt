@@ -199,7 +199,7 @@ const Home = () => {
                 className="group"
               >
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                  <div className="aspect-[3/4] overflow-hidden">
+                  <div className="aspect-[1/1] overflow-hidden">
                     <img
                       src={category.image}
                       alt={category.name}

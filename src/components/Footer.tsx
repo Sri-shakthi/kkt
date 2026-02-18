@@ -22,6 +22,12 @@ const Footer = () => {
   ];
 
   const categories = [
+    { name: 'Uthukuli Butter & Ghee', path: '/products?category=butterghee' },
+    { name: 'Forest Honey', path: '/products?category=honey' },
+    { name: 'Maracheku Oils', path: '/products?category=oils' },
+    { name: 'Traditional Rice', path: '/products?category=rice' },
+    { name: 'Brown Sugar & Vellam', path: '/products?category=sweeteners' },
+    { name: 'Pooja Items', path: '/products?category=pooja' },
     { name: 'Spices', path: '/products?category=spices' },
     { name: 'Health Mix', path: '/products?category=healthmix' },
     { name: 'Pickles', path: '/products?category=pickles' },

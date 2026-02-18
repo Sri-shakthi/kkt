@@ -1,0 +1,8 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'>
+  <rect width='800' height='800' fill='#f7f1e7'/>
+  <ellipse cx='400' cy='560' rx='220' ry='120' fill='#d8c2a2'/>
+  <circle cx='290' cy='470' r='58' fill='#c55d2d'/>
+  <circle cx='400' cy='440' r='54' fill='#c79a3f'/>
+  <circle cx='510' cy='470' r='58' fill='#7c4a27'/>
+  <text x='400' y='710' text-anchor='middle' font-family='Verdana' font-size='68' fill='#6a4123'>Podi</text>
+</svg>

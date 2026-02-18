@@ -116,7 +116,7 @@ const Products = () => {
             </div>
 
             {/* Category Filter - Desktop */}
-            <div className="hidden lg:flex items-center gap-2">
+            <div className="hidden lg:flex items-center gap-2 flex-wrap">
               <Button
                 variant={selectedCategory === 'all' ? 'default' : 'outline'}
                 size="sm"

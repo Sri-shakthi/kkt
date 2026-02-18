@@ -1,0 +1,7 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'>
+<rect width='800' height='800' fill='#fff5df'/>
+<path d='M400 230c40 80 40 80 0 160-40-80-40-80 0-160z' fill='#ff8a00'/>
+<circle cx='400' cy='450' r='110' fill='#c65f1a'/>
+<circle cx='400' cy='450' r='70' fill='#ffd27a'/>
+<text x='400' y='725' text-anchor='middle' font-family='Verdana' font-size='68' fill='#7a3a14'>Pooja Items</text>
+</svg>

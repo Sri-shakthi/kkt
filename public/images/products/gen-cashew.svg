@@ -1,0 +1,10 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'>
+  <rect width='800' height='800' fill='#f7efe1'/>
+  <ellipse cx='220' cy='420' rx='90' ry='120' fill='#e6c39d' stroke='#b88855' stroke-width='14'/>
+  <ellipse cx='300' cy='420' rx='70' ry='95' fill='#f7efe1'/>
+  <ellipse cx='460' cy='360' rx='90' ry='120' fill='#e6c39d' stroke='#b88855' stroke-width='14'/>
+  <ellipse cx='540' cy='360' rx='70' ry='95' fill='#f7efe1'/>
+  <ellipse cx='390' cy='530' rx='90' ry='120' fill='#e6c39d' stroke='#b88855' stroke-width='14'/>
+  <ellipse cx='470' cy='530' rx='70' ry='95' fill='#f7efe1'/>
+  <text x='400' y='730' text-anchor='middle' font-family='Verdana' font-size='64' fill='#7d5a37'>Cashews</text>
+</svg>

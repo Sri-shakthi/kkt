@@ -1,0 +1,7 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 800'>
+<rect width='800' height='800' fill='#f3efe8'/>
+<ellipse cx='400' cy='500' rx='230' ry='130' fill='#d9b88f'/>
+<ellipse cx='400' cy='470' rx='210' ry='85' fill='#fffaf0'/>
+<circle cx='330' cy='450' r='6' fill='#f7f2e4'/><circle cx='370' cy='440' r='6' fill='#f7f2e4'/><circle cx='410' cy='455' r='6' fill='#f7f2e4'/><circle cx='450' cy='445' r='6' fill='#f7f2e4'/>
+<text x='400' y='725' text-anchor='middle' font-family='Verdana' font-size='60' fill='#6b4f35'>Traditional Rice</text>
+</svg>
