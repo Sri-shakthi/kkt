@@ -191,7 +191,7 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-5 md:gap-7">
             {categories.map((category) => (
               <Link
                 key={category.id}
@@ -208,10 +208,10 @@ const Home = () => {
                     />
                   </div>
                   <div className="p-4 text-center">
-                    <h3 className="font-semibold text-[#1A1A1A] group-hover:text-[#2E5A3D] transition-colors">
+                    <h3 className="font-semibold text-base text-[#1A1A1A] group-hover:text-[#2E5A3D] transition-colors">
                       {category.name}
                     </h3>
-                    <p className="text-[#6E6A63] text-sm mt-1">{category.description}</p>
+                    <p className="text-[#6E6A63] text-sm mt-1.5">{category.description}</p>
                   </div>
                 </div>
               </Link>

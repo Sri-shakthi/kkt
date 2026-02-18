@@ -657,7 +657,7 @@ export const getRelatedProducts = (product: Product, limit: number = 4) => {
 
 export const categories = [
   { id: "spices", name: "Spices", description: "Aromatic blends", image: "/images/categories/spices.jpg" },
-  { id: "healthmix", name: "Health Mix", description: "Wellness blends", image: "/images/categories/spices.jpg" },
+  { id: "healthmix", name: "Health Mix", description: "Wellness blends", image: "https://ik.imagekit.io/qbnsahjpu/assets/KKT%20Traders/image.png" },
   { id: "pickles", name: "Pickles", description: "Tangy & spicy", image: "/images/categories/pickles.jpg" },
   { id: "thokku", name: "Thokku", description: "Flavorful condiments", image: "/images/categories/thokku.jpg" },
   { id: "vadagam", name: "Vadagam", description: "Crispy accompaniments", image: "/images/categories/vadagam.jpg" },
