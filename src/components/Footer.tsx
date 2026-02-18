@@ -23,6 +23,7 @@ const Footer = () => {
 
   const categories = [
     { name: 'Spices', path: '/products?category=spices' },
+    { name: 'Health Mix', path: '/products?category=healthmix' },
     { name: 'Pickles', path: '/products?category=pickles' },
     { name: 'Thokku', path: '/products?category=thokku' },
     { name: 'Vadagam', path: '/products?category=vadagam' },

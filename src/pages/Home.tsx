@@ -11,7 +11,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
-import { getBestsellers, categories, generateGeneralWhatsAppLink, BRAND_COLOR, BUTTER_IMAGE_URL } from '@/data/products';
+import { getBestsellers, categories, generateGeneralWhatsAppLink, BRAND_COLOR, BUTTER_IMAGE_URL, SUSTAINABILITY_DISCOUNT_IMAGE_URL } from '@/data/products';
 
 const Home = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -469,6 +469,49 @@ const Home = () => {
       </section>
 
       {/* CTA Section */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <Badge
+                variant="outline"
+                className="mb-4 px-3 py-1 text-xs font-medium tracking-wider uppercase border-[#2E5A3D]/30 text-[#2E5A3D]"
+              >
+                Sustainability Offer
+              </Badge>
+              <h2 className="text-3xl sm:text-4xl font-bold text-[#1A1A1A] mb-4">
+                Bring Your Own Container
+              </h2>
+              <p className="text-[#6E6A63] text-lg mb-6">
+                Get Rs.10 discount per litre on oil and ghee when you bring your own clean container.
+                We avoid plastic and promote sustainable packing.
+              </p>
+              <a
+                href={generateGeneralWhatsAppLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  variant="outline"
+                  className="border-[#2E5A3D] text-[#2E5A3D] font-medium px-6 py-5 rounded-xl hover:bg-[#2E5A3D] hover:text-white transition-all"
+                >
+                  Claim Refill Discount
+                  <ArrowRight className="w-5 h-5 ml-2" />
+                </Button>
+              </a>
+            </div>
+            <div className="relative">
+              <img
+                src={SUSTAINABILITY_DISCOUNT_IMAGE_URL}
+                alt="Refill discount for oil and ghee"
+                className="w-full rounded-3xl shadow-xl"
+                loading="lazy"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div

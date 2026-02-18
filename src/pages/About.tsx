@@ -336,8 +336,8 @@ const About = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              '/images/categories/spices.jpg',
-              '/images/categories/pickles.jpg',
+              'https://ik.imagekit.io/qbnsahjpu/assets/KKT%20Traders/WhatsApp%20Image%202026-02-12%20at%2012.42.15.jpeg',
+              'https://ik.imagekit.io/qbnsahjpu/assets/KKT%20Traders/WhatsApp%20Image%202026-02-12%20at%2012.42.02.jpeg',
               '/images/categories/thokku.jpg',
               '/images/inside-jar.jpg',
             ].map((image, index) => (

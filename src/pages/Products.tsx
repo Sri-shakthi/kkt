@@ -88,7 +88,7 @@ const Products = () => {
             Our Products
           </h1>
           <p className="text-[#6E6A63]">
-            Browse our collection of homemade spices, pickles, and snacks.
+            Browse our collection of homemade spices, health mixes, pickles, and snacks.
           </p>
         </div>
 
