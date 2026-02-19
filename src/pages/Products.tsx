@@ -115,61 +115,63 @@ const Products = () => {
               )}
             </div>
 
-            {/* Category Filter - Desktop */}
-            <div className="hidden lg:flex items-center gap-2 flex-wrap">
+            <div className="flex items-center gap-2">
+              {/* Sort Dropdown */}
+              <div className="relative flex-1 min-w-[170px]">
+                <select
+                  value={sortBy}
+                  onChange={(e) => setSortBy(e.target.value as SortOption)}
+                  className="appearance-none w-full px-4 py-2.5 pr-10 rounded-xl border border-gray-200 bg-white text-[#1A1A1A] text-sm focus:border-[#2E5A3D] focus:ring-1 focus:ring-[#2E5A3D] cursor-pointer"
+                >
+                  <option value="popular">Most Popular</option>
+                  <option value="new">Newest</option>
+                </select>
+                <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6E6A63] pointer-events-none" />
+              </div>
+
+              {/* Mobile Filter Toggle */}
               <Button
-                variant={selectedCategory === 'all' ? 'default' : 'outline'}
+                variant="outline"
+                size="icon"
+                className="lg:hidden border-gray-200"
+                onClick={() => setShowFilters(!showFilters)}
+              >
+                <SlidersHorizontal className="w-5 h-5" />
+              </Button>
+            </div>
+          </div>
+
+          {/* Category Filter - Desktop (Below Search) */}
+          <div className="hidden lg:flex items-center gap-2 flex-wrap mt-4 pt-4 border-t border-gray-100">
+            <Button
+              variant={selectedCategory === 'all' ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => handleCategoryChange('all')}
+              className={`rounded-lg ${
+                selectedCategory === 'all'
+                  ? 'text-white'
+                  : 'border-gray-200 text-[#6E6A63] hover:border-[#2E5A3D] hover:text-[#2E5A3D]'
+              }`}
+              style={selectedCategory === 'all' ? { backgroundColor: BRAND_COLOR } : {}}
+            >
+              All
+            </Button>
+            {categories.map((category) => (
+              <Button
+                key={category.id}
+                variant={selectedCategory === category.id ? 'default' : 'outline'}
                 size="sm"
-                onClick={() => handleCategoryChange('all')}
+                onClick={() => handleCategoryChange(category.id)}
                 className={`rounded-lg ${
-                  selectedCategory === 'all'
+                  selectedCategory === category.id
                     ? 'text-white'
                     : 'border-gray-200 text-[#6E6A63] hover:border-[#2E5A3D] hover:text-[#2E5A3D]'
                 }`}
-                style={selectedCategory === 'all' ? { backgroundColor: BRAND_COLOR } : {}}
+                style={selectedCategory === category.id ? { backgroundColor: BRAND_COLOR } : {}}
               >
-                All
+                {category.name}
               </Button>
-              {categories.map((category) => (
-                <Button
-                  key={category.id}
-                  variant={selectedCategory === category.id ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => handleCategoryChange(category.id)}
-                  className={`rounded-lg ${
-                    selectedCategory === category.id
-                      ? 'text-white'
-                      : 'border-gray-200 text-[#6E6A63] hover:border-[#2E5A3D] hover:text-[#2E5A3D]'
-                  }`}
-                  style={selectedCategory === category.id ? { backgroundColor: BRAND_COLOR } : {}}
-                >
-                  {category.name}
-                </Button>
-              ))}
-            </div>
-
-            {/* Sort Dropdown */}
-            <div className="relative">
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value as SortOption)}
-                className="appearance-none w-full lg:w-44 px-4 py-2.5 pr-10 rounded-xl border border-gray-200 bg-white text-[#1A1A1A] text-sm focus:border-[#2E5A3D] focus:ring-1 focus:ring-[#2E5A3D] cursor-pointer"
-              >
-                <option value="popular">Most Popular</option>
-                <option value="new">Newest</option>
-              </select>
-              <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6E6A63] pointer-events-none" />
-            </div>
-
-            {/* Mobile Filter Toggle */}
-            <Button
-              variant="outline"
-              size="icon"
-              className="lg:hidden border-gray-200"
-              onClick={() => setShowFilters(!showFilters)}
-            >
-              <SlidersHorizontal className="w-5 h-5" />
-            </Button>
+            ))}
           </div>
 
           {/* Mobile Category Filters */}

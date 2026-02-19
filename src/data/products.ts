@@ -945,7 +945,7 @@ export const categories = [
   { id: "thokku", name: "Thokku", description: "Flavorful condiments", image: "/images/categories/thokku.jpg" },
   { id: "vadagam", name: "Vadagam", description: "Crispy accompaniments", image: "/images/categories/vadagam.jpg" },
   { id: "nuts", name: "Dry Fruits", description: "Premium dry fruits and nuts", image: "/images/categories/nuts.jpg" },
-  { id: "seeds", name: "Seeds", description: "Healthy seed varieties", image: "https://source.unsplash.com/1600x1600/?mixed-seeds,bowl,white-background" },
+  { id: "seeds", name: "Seeds", description: "Healthy seed varieties", image: "https://www.nutshouse.in/wp-content/uploads/2023/07/1000243959.jpg" },
   { id: "organic", name: "Organic Items", description: "Natural daily essentials", image: "https://ootymade.com/cdn/shop/files/2_d5b25e56-446d-4b0f-969f-b69f45c3f453.webp?v=1716374565&width=1445" },
   { id: "snacks", name: "Home made snacks", description: "Traditional snacks & sweets", image: "https://www.orderyourchoice.com/118536-large_default/kai-murukku-grand-sweets.jpg" },
 ] as const;
