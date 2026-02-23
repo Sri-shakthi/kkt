@@ -12,6 +12,7 @@ const ProductDetails = () => {
   const navigate = useNavigate();
   const [selectedSize, setSelectedSize] = useState<string>('');
   const [imageError, setImageError] = useState(false);
+  const fallbackImage = "/images/kkt-traders-logo.png";
 
   const product = id ? getProductById(id) : undefined;
   const relatedProducts = product ? getRelatedProducts(product, 4) : [];
@@ -101,18 +102,19 @@ const ProductDetails = () => {
             {/* Image */}
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden bg-[#F6F2EA]">
-                {!imageError ? (
-                  <img
-                    src={product.images[0]}
-                    alt={product.name}
-                    className="w-full h-full object-cover"
-                    onError={() => setImageError(true)}
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-[#F3EFE6]">
-                    <span className="text-[#6E6A63]">{product.name}</span>
-                  </div>
-                )}
+                <img
+                  src={imageError ? fallbackImage : product.images[0]}
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                  onError={() => {
+                    if (!imageError) {
+                      setImageError(true);
+                    }
+                  }}
+                  loading="eager"
+                  decoding="async"
+                  referrerPolicy="no-referrer"
+                />
               </div>
               {/* Tags */}
               <div className="absolute top-4 left-4 flex flex-wrap gap-2">

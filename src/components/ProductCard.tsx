@@ -14,6 +14,7 @@ interface ProductCardProps {
 const ProductCard = ({ product }: ProductCardProps) => {
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
   const [imageError, setImageError] = useState(false);
+  const fallbackImage = "/images/kkt-traders-logo.png";
 
   const getTagIcon = (tag: string) => {
     switch (tag.toLowerCase()) {
@@ -45,19 +46,19 @@ const ProductCard = ({ product }: ProductCardProps) => {
     <div className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
       {/* Image */}
       <Link to={`/product/${product.id}`} className="block relative aspect-square overflow-hidden bg-[#F6F2EA]">
-        {!imageError ? (
-          <img
-            src={product.images[0]}
-            alt={product.name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            onError={() => setImageError(true)}
-            loading="lazy"
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center bg-[#F3EFE6]">
-            <span className="text-[#6E6A63] text-sm">{product.name}</span>
-          </div>
-        )}
+        <img
+          src={imageError ? fallbackImage : product.images[0]}
+          alt={product.name}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+          onError={() => {
+            if (!imageError) {
+              setImageError(true);
+            }
+          }}
+          loading="lazy"
+          decoding="async"
+          referrerPolicy="no-referrer"
+        />
         {/* Tags */}
         <div className="absolute top-3 left-3 flex flex-wrap gap-1.5">
           {product.tags.slice(0, 2).map((tag) => (

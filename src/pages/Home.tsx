@@ -164,14 +164,6 @@ const Home = () => {
                   <span className="text-xs block">Natural</span>
                 </div>
               </div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-white rounded-2xl shadow-lg p-4 z-20">
-                <div className="flex items-center gap-1 mb-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                  ))}
-                </div>
-                <p className="text-[#1A1A1A] font-semibold text-sm">500+ Happy Customers</p>
-              </div>
               {/* Background Decoration */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#2E5A3D]/5 rounded-full -z-10" />
             </div>
