@@ -480,6 +480,17 @@ export const products: Product[] = [
     isBestseller: false,
   },
   {
+    id: "organic-004",
+    name: "Herbal Hair Dye",
+    category: "organic",
+    description: "Natural herbal hair dye.",
+    shortDescription: "Herbal hair dye",
+    sizes: ["100g", "250g"],
+    tags: ["Fresh"],
+    images: ["https://www.aarogyanutrimix.in/cdn/shop/files/2_0ec185b3-ad17-4f75-851f-75e95686a572.png?v=1769840038"],
+    isBestseller: false,
+  },
+  {
     id: "pooja-004",
     name: "Deepam Oil",
     category: "pooja",
