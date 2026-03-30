@@ -9,6 +9,8 @@ import {
   GOOGLE_BUSINESS_URL,
   YOUTUBE_SHORT_1_URL,
   YOUTUBE_SHORT_2_URL,
+  FSSAI_NUMBER,
+  MSME_NUMBER,
 } from '@/data/products';
 
 const Footer = () => {
@@ -26,7 +28,7 @@ const Footer = () => {
     { name: 'Forest Honey', path: '/products?category=honey' },
     { name: 'Maracheku Oils', path: '/products?category=oils' },
     { name: 'Traditional Rice', path: '/products?category=rice' },
-    { name: 'Brown Sugar & Vellam', path: '/products?category=sweeteners' },
+    { name: 'Brown Sugar & Paagu Vellam', path: '/products?category=sweeteners' },
     { name: 'Pooja Items', path: '/products?category=pooja' },
     { name: 'Spices', path: '/products?category=spices' },
     { name: 'Health Mix', path: '/products?category=healthmix' },
@@ -198,9 +200,14 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-[#D5CFC4]">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            <p className="text-[#6E6A63] text-sm text-center md:text-left">
-              {currentYear} KK Traders. All rights reserved.
-            </p>
+            <div className="text-[#6E6A63] text-sm text-center md:text-left space-y-1">
+              <p>{currentYear} KK Traders. All rights reserved.</p>
+              <p>
+                FSSAI: <span className="font-medium text-[#1A1A1A]">{FSSAI_NUMBER}</span>{" "}
+                <span className="mx-2 text-[#D5CFC4]">|</span>
+                MSME: <span className="font-medium text-[#1A1A1A]">{MSME_NUMBER}</span>
+              </p>
+            </div>
             <div className="flex items-center space-x-6">
               <Link
                 to="/"

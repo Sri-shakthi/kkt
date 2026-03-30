@@ -70,6 +70,7 @@ const Navbar = () => {
 
             {/* Desktop Actions */}
             <div className="hidden md:flex items-center space-x-4">
+              {/* Cart is temporarily hidden */}
               <a
                 href={`https://instagram.com/${INSTAGRAM_HANDLE}`}
                 target="_blank"
@@ -95,6 +96,7 @@ const Navbar = () => {
 
             {/* Mobile Menu Button */}
             <div className="flex md:hidden items-center space-x-3">
+              {/* Cart is temporarily hidden */}
               <a
                 href={generateGeneralWhatsAppLink()}
                 target="_blank"

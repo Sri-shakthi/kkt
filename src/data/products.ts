@@ -6,6 +6,10 @@
 // Example: "919876543210" for India +91 98765 43210
 export const WHATSAPP_NUMBER = "917708755348";
 
+// Legal registrations
+export const FSSAI_NUMBER = "12424008000882";
+export const MSME_NUMBER = "UDYAM-TN-34-0007474";
+
 // Your Instagram handle (without @)
 export const INSTAGRAM_HANDLE = "kkt_kktraders";
 export const FACEBOOK_URL = "https://www.facebook.com/profile.php?id=61556282679743";
@@ -27,7 +31,7 @@ export const SUSTAINABILITY_DISCOUNT_IMAGE_URL = "https://ik.imagekit.io/qbnsahj
 export interface Product {
   id: string;
   name: string;
-  category: "spices" | "podi" | "pickles" | "nuts" | "seeds" | "thokku" | "vadagam" | "healthmix" | "butterghee" | "honey" | "oils" | "rice" | "siruthaniyam" | "sweeteners" | "pooja" | "organic" | "snacks";
+  category: "spices" | "podi" | "pickles" | "nuts" | "seeds" | "thokku" | "vadagam" | "healthmix" | "butterghee" | "honey" | "oils" | "rice" | "siruthaniyam" | "sweeteners" | "pooja" | "organic" | "snacks" | "soups";
   description: string;
   shortDescription: string;
   sizes: string[];
@@ -38,6 +42,8 @@ export interface Product {
   isBestseller: boolean;
   isNew?: boolean;
   isSpicy?: boolean;
+  hideFromAll?: boolean;
+  exclusiveCategory?: Product["category"];
 }
 
 // ============================================
@@ -103,10 +109,10 @@ export const products: Product[] = [
   },
   {
     id: "nuts-003",
-    name: "Masala Cashews",
+    name: "Chilli Cashew",
     category: "nuts",
-    description: "Cashews roasted with aromatic spices.",
-    shortDescription: "Spiced roasted cashews",
+    description: "Cashews roasted with chilli spices.",
+    shortDescription: "Chilli roasted cashew",
     sizes: ["100gms", "250gms", "500gms", "1kg"],
     tags: ["Spicy"],
     images: ["https://vegehomecooking.com/wp-content/uploads/2019/10/SpicyRoastedCashewsFeaturedImage.jpg"],
@@ -140,10 +146,10 @@ export const products: Product[] = [
   },
   {
     id: "honey-002",
-    name: "Wild Honey",
+    name: "Kombu Honey",
     category: "honey",
-    description: "Wild honey sourced from natural forest regions.",
-    shortDescription: "Natural wild honey",
+    description: "Kombu honey sourced from natural forest regions.",
+    shortDescription: "Natural kombu honey",
     sizes: ["100ml", "250ml", "500ml", "1000ml/1li"],
     tags: ["Fresh"],
     images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6HHRdKjPSE3ZDgnSSnivwRbdw7Tk48txofg&s"],
@@ -151,10 +157,10 @@ export const products: Product[] = [
   },
   {
     id: "honey-003",
-    name: "Forest Honey Amla",
+    name: "Honey Amla",
     category: "honey",
-    description: "Amla infused forest honey.",
-    shortDescription: "Amla infused forest honey",
+    description: "Amla infused honey.",
+    shortDescription: "Amla infused honey",
     sizes: ["100ml", "250ml", "500ml", "1000ml/1li"],
     tags: ["Fresh"],
     images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3s5ciZd3KLSMomAbBb1ZwYy5jRtX6tmsfqkIc3q8f0A&s"],
@@ -393,10 +399,10 @@ export const products: Product[] = [
   },
   {
     id: "sweet-002",
-    name: "Vellam (Jaggery)",
+    name: "Paagu Vellam",
     category: "sweeteners",
-    description: "Traditional vellam (jaggery).",
-    shortDescription: "Traditional vellam",
+    description: "Traditional paagu vellam.",
+    shortDescription: "Traditional paagu vellam",
     sizes: ["250g", "500g", "1kg"],
     tags: ["Fresh"],
     images: ["https://www.miyofresh.com/wp-content/uploads/2025/03/GUNDU-VELLAM.jpg"],
@@ -419,7 +425,7 @@ export const products: Product[] = [
     category: "sweeteners",
     description: "Traditional karupati.",
     shortDescription: "Traditional karupati",
-    sizes: ["500g", "1kg"],
+    sizes: ["250gms", "500g", "1kg"],
     tags: ["Fresh"],
     images: ["https://kanishopee.in/wp-content/uploads/2025/05/KARUPATI.jpg"],
     isBestseller: false,
@@ -491,6 +497,17 @@ export const products: Product[] = [
     isBestseller: false,
   },
   {
+    id: "organic-101",
+    name: "Karpooravalli Thailam",
+    category: "organic",
+    description: "Karpooravalli thailam (herbal oil).",
+    shortDescription: "Karpooravalli thailam",
+    sizes: ["50ml", "100ml", "200ml"],
+    tags: ["Fresh"],
+    images: ["https://sriprarthana.com/cdn/shop/files/rn-image_picker_lib_temp_2e708db3-f618-480e-bdf5-2f617b2802d0.png?v=1759762040"],
+    isBestseller: false,
+  },
+  {
     id: "pooja-004",
     name: "Deepam Oil",
     category: "pooja",
@@ -498,7 +515,7 @@ export const products: Product[] = [
     shortDescription: "Traditional deepam oil",
     sizes: ["500ml", "1li"],
     tags: ["Fresh"],
-    images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvTB74sg5UoZDeKBmyYungCQYIp6sTJI6nmw&s"],
+    images: ["/images/kkt-traders-logo.png"],
     isBestseller: false,
   },
   {
@@ -569,10 +586,10 @@ export const products: Product[] = [
   },
   {
     id: "pooja-011",
-    name: "Castor Oil",
-    category: "pooja",
-    description: "Castor oil for traditional lamp use.",
-    shortDescription: "Castor oil",
+    name: "Maracheku Castor Oil",
+    category: "oils",
+    description: "Maracheku castor oil for traditional use.",
+    shortDescription: "Maracheku castor oil",
     sizes: ["50ml", "100ml"],
     tags: ["Fresh"],
     images: ["https://m.media-amazon.com/images/I/71TMFhJOmwL._AC_UF350,350_QL80_.jpg"],
@@ -580,21 +597,21 @@ export const products: Product[] = [
   },
   {
     id: "pooja-012",
-    name: "Veppenai",
-    category: "pooja",
-    description: "Veppenai suitable for traditional use.",
-    shortDescription: "Veppenai",
+    name: "Maracheku Veppenai",
+    category: "oils",
+    description: "Maracheku veppenai suitable for traditional use.",
+    shortDescription: "Maracheku veppenai",
     sizes: ["50ml", "100ml"],
     tags: ["Fresh"],
-    images: ["https://naturalpoland.com/wp-content/uploads/neem-oil.webp"],
+    images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREnI5YU3Ud0CcSFap6UyvivT6m_C14weN_YA&s"],
     isBestseller: false,
   },
   {
     id: "pooja-013",
-    name: "Mustard Oil",
-    category: "pooja",
-    description: "Mustard oil for lamp and ritual use.",
-    shortDescription: "Mustard oil",
+    name: "Maracheku Mustard Oil",
+    category: "oils",
+    description: "Maracheku mustard oil for traditional use.",
+    shortDescription: "Maracheku mustard oil",
     sizes: ["50ml", "100ml"],
     tags: ["Fresh"],
     images: ["https://chakkipeesing.com/cdn/shop/files/197.png?v=1734694968&width=1445"],
@@ -602,10 +619,10 @@ export const products: Product[] = [
   },
   {
     id: "pooja-014",
-    name: "Ilupennai",
-    category: "pooja",
-    description: "Ilupennai for pooja deepam usage.",
-    shortDescription: "Ilupennai",
+    name: "Maracheku Ilupai Oil",
+    category: "oils",
+    description: "Maracheku ilupai oil for traditional use.",
+    shortDescription: "Maracheku ilupai oil",
     sizes: ["50ml", "100ml"],
     tags: ["Fresh"],
     images: ["https://thulirorganics.in/wp-content/uploads/2023/03/Illuppai-Oil.jpg"],
@@ -613,10 +630,10 @@ export const products: Product[] = [
   },
   {
     id: "pooja-015",
-    name: "Kanuga Oil",
-    category: "pooja",
-    description: "Kanuga oil for traditional lamp use.",
-    shortDescription: "Kanuga oil",
+    name: "Maracheku Kanuga Enai",
+    category: "oils",
+    description: "Maracheku kanuga enai for traditional use.",
+    shortDescription: "Maracheku kanuga enai",
     sizes: ["50ml", "100ml"],
     tags: ["Fresh"],
     images: ["https://cdn.dotpe.in/longtail/store-items/5739802/LaEY2Pzg.jpeg"],
@@ -625,10 +642,10 @@ export const products: Product[] = [
   // EXTRA SPICES TO KEEP
   {
     id: "pooja-016",
-    name: "Almond Oil",
-    category: "pooja",
-    description: "Traditional almond oil.",
-    shortDescription: "Almond oil",
+    name: "Maracheku Almond Oil",
+    category: "oils",
+    description: "Maracheku almond oil for traditional use.",
+    shortDescription: "Maracheku almond oil",
     sizes: ["50ml", "100ml"],
     tags: ["Fresh"],
     images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYKhRtxpm5HqbUTyM58k3eLaJmxkCyYdZA2Q&s"],
@@ -672,15 +689,14 @@ export const products: Product[] = [
   { id: "pickle-001", name: "Mango Avakai Pickle", category: "pickles", description: "Traditional mango avakai pickle.", shortDescription: "Traditional mango avakai", sizes: ["250g"], tags: ["Spicy"], images: ["https://vellankifoods.com/cdn/shop/products/andhra_avakaya_pickle_mango.jpg?v=1679897008"], isBestseller: true, isSpicy: true },
   { id: "pickle-101", name: "Cut Mango Pickle", category: "pickles", description: "Cut mango pickle.", shortDescription: "Cut mango pickle", sizes: ["250g"], tags: ["Spicy"], images: ["https://meenammaskitchen.com/cdn/shop/files/IMG_1074.jpg?v=1733812790"], isBestseller: false, isSpicy: true },
   { id: "pickle-002", name: "Garlic Pickle", category: "pickles", description: "Garlic pickle.", shortDescription: "Garlic pickle", sizes: ["250g"], tags: ["Spicy"], images: ["https://aahaaramonline.com/wp-content/uploads/2022/07/Andhra_Garlic_Pickle_Vellulli_Avakaya.jpg"], isBestseller: false, isSpicy: true },
-  { id: "pickle-102", name: "Mango Pickle", category: "pickles", description: "Mango pickle.", shortDescription: "Mango pickle", sizes: ["250g"], tags: ["Spicy"], images: ["https://www.whiskaffair.com/wp-content/uploads/2020/07/Kerala-Style-Mango-Pickle-2-3.jpg"], isBestseller: false, isSpicy: true },
   { id: "pickle-103", name: "Mango Ginger Pickle", category: "pickles", description: "Mango ginger pickle.", shortDescription: "Mango ginger pickle", sizes: ["250g"], tags: ["Spicy"], images: ["https://mylaporeganapathys.com/wp-content/uploads/2025/05/mg-gi-pick.jpg"], isBestseller: false, isSpicy: true },
   { id: "pickle-104", name: "Lime Pickle", category: "pickles", description: "Lime pickle.", shortDescription: "Lime pickle", sizes: ["250g"], tags: ["Spicy"], images: ["https://mylaporeganapathys.com/wp-content/uploads/2025/05/lime-pickle.jpg"], isBestseller: false, isSpicy: true },
   { id: "pickle-105", name: "Amla Pickle", category: "pickles", description: "Amla pickle.", shortDescription: "Amla pickle", sizes: ["250g"], tags: ["Fresh"], images: ["https://masalachilli.com/wp-content/uploads/2021/03/Instant-Amla-Pickle-4.jpg"], isBestseller: false },
   { id: "pickle-106", name: "Mahali Pickle", category: "pickles", description: "Mahali pickle.", shortDescription: "Mahali pickle", sizes: ["250g"], tags: ["Fresh"], images: ["https://cdn.dotpe.in/longtail/store-items/6368303/UicTjDM6.webp"], isBestseller: false },
   { id: "pickle-107", name: "Vadu Mango", category: "pickles", description: "Vadu mango pickle.", shortDescription: "Vadu mango", sizes: ["250g"], tags: ["Bestseller"], images: ["https://www.jeyashriskitchen.com/wp-content/uploads/2014/04/maavadu-recipe.jpg"], isBestseller: true },
   { id: "pickle-108", name: "Narthangai Pickle", category: "pickles", description: "Traditional narthangai pickle.", shortDescription: "Narthangai pickle", sizes: ["250g"], tags: ["Fresh"], images: ["https://mylaporeganapathys.com/wp-content/uploads/2025/05/nar-pickle.jpg"], isBestseller: false },
-  { id: "pickle-109", name: "Andhra Pickles", category: "pickles", description: "Traditional andhra pickles.", shortDescription: "Traditional andhra pickles", sizes: ["250g"], tags: ["Spicy"], images: ["https://vellankifoods.com/cdn/shop/products/andhra_avakaya_pickle_mango.jpg?v=1679897008"], isBestseller: false, isSpicy: true },
-  { id: "pickle-110", name: "Gedarangai Pickle", category: "pickles", description: "Traditional gedarangai pickle.", shortDescription: "Gedarangai pickle", sizes: ["250g"], tags: ["Fresh"], images: ["https://mylaporeganapathys.com/wp-content/uploads/2025/05/nar-pickle.jpg"], isBestseller: false },
+  { id: "pickle-109", name: "Andhra Pickle", category: "pickles", description: "Traditional Andhra pickle.", shortDescription: "Traditional Andhra pickle", sizes: ["250g"], tags: ["Spicy"], images: ["https://vellankifoods.com/cdn/shop/products/andhra_avakaya_pickle_mango.jpg?v=1679897008"], isBestseller: false, isSpicy: true },
+  { id: "pickle-110", name: "Gedarangai Pickle", category: "pickles", description: "Traditional gedarangai pickle.", shortDescription: "Gedarangai pickle", sizes: ["250g"], tags: ["Fresh"], images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJrMbs6-QyoWCF1UvqwmXHR5izHu9XVAfj9Q&s"], isBestseller: false },
 
   // PDF PRODUCTS - THOKKU & MIX
   { id: "thokku-001", name: "Mango Thokku", category: "thokku", description: "Mango thokku.", shortDescription: "Mango thokku", sizes: ["250g"], tags: ["Bestseller"], images: ["https://images.aasaan.shop/stores/sasyafoods/products/product_images/product_1750920353020.jpeg"], isBestseller: true },
@@ -692,6 +708,7 @@ export const products: Product[] = [
   { id: "thokku-106", name: "Kothamalli Thokku", category: "thokku", description: "Kothamalli thokku.", shortDescription: "Kothamalli thokku", sizes: ["250g"], tags: ["Fresh"], images: ["https://vijisfoods.com/wp-content/uploads/2025/05/Kothamalli-Thokku.jpg"], isBestseller: false },
   { id: "thokku-107", name: "Pudheena Thokku", category: "thokku", description: "Pudheena thokku.", shortDescription: "Pudheena thokku", sizes: ["250g"], tags: ["Fresh"], images: ["https://aswinssweets.com/cdn/shop/files/pudhinathokku-617.jpg?v=1742992613"], isBestseller: false },
   { id: "thokku-108", name: "Gongura Thokku", category: "thokku", description: "Gongura thokku.", shortDescription: "Gongura thokku", sizes: ["250g"], tags: ["Spicy"], images: ["https://mylaporeganapathys.com/wp-content/uploads/2025/05/gon-th.jpg"], isBestseller: false, isSpicy: true },
+  { id: "thokku-109", name: "Vallarai Thokku", category: "thokku", description: "Vallarai thokku.", shortDescription: "Vallarai thokku", sizes: ["250g"], tags: ["Fresh"], images: ["https://dhanasfoods.com/cdn/shop/files/vallarai-thokku-1-450x450.jpg?v=1761325020&width=1920"], isBestseller: false, hideFromAll: true, exclusiveCategory: "thokku" },
   { id: "thokku-003", name: "Ginger Thokku", category: "thokku", description: "Ginger thokku.", shortDescription: "Ginger thokku", sizes: ["250g"], tags: ["Fresh"], images: ["https://i0.wp.com/ahahomefoods.com/wp-content/uploads/2023/02/Ginger-Pickle-in-Jaggery-Sauce.jpg?fit=600%2C600&ssl=1"], isBestseller: false },
   { id: "thokku-002", name: "Tomato Thokku", category: "thokku", description: "Tomato thokku.", shortDescription: "Tomato thokku", sizes: ["250g"], tags: ["Fresh"], images: ["https://cookingfromheart.com/wp-content/uploads/2021/06/Vengayam-Thakkali-Thokku-4.jpg"], isBestseller: false },
   { id: "thokku-109", name: "Tomato Onion Thokku", category: "thokku", description: "Tomato onion thokku.", shortDescription: "Tomato onion thokku", sizes: ["250g"], tags: ["Fresh"], images: ["https://www.sharmispassions.com/wp-content/uploads/2021/01/OnionTomatoThokku3.jpg"], isBestseller: false },
@@ -713,6 +730,7 @@ export const products: Product[] = [
   { id: "vadagam-110", name: "Jeeragam Vathal", category: "vadagam", description: "Jeeragam vathal.", shortDescription: "Jeeragam vathal", sizes: ["250g"], tags: ["Fresh"], images: ["https://mylaporeganapathys.com/wp-content/uploads/2025/05/Rice-Vadam-%E2%80%93-Jeera.jpg"], isBestseller: false },
   { id: "vadagam-111", name: "Ribbon Vathal", category: "vadagam", description: "Ribbon vathal.", shortDescription: "Ribbon vathal", sizes: ["250g"], tags: ["Fresh"], images: ["https://srivarahafoods.com/cdn/shop/files/Ribbon-Vadam-VadagamArisi-Vadam-1.webp?v=1750332069"], isBestseller: false },
   { id: "vadagam-112", name: "Onion Vathal", category: "vadagam", description: "Onion vathal.", shortDescription: "Onion vathal", sizes: ["250g"], tags: ["Fresh"], images: ["https://grandmaslilsecret.com/cdn/shop/files/SrideviLMGLSShoot20240337.webp?v=1715674142"], isBestseller: false },
+  { id: "vadagam-122", name: "Tomato Vathal", category: "vadagam", description: "Tomato vathal.", shortDescription: "Tomato vathal", sizes: ["100g"], tags: ["Fresh"], images: ["https://amirthamfood.com/wp-content/uploads/2022/12/Tomato-Vadam.png"], isBestseller: false },
   { id: "vadagam-113", name: "Kothavarakkai Vathal", category: "vadagam", description: "Kothavarakkai vathal.", shortDescription: "Kothavarakkai vathal", sizes: ["100g"], tags: ["Fresh"], images: ["https://srivarahafoods.com/cdn/shop/files/Kothavarai-Seeni-Avarakkai-Vathal.webp?v=1750332205"], isBestseller: false },
   { id: "vadagam-114", name: "Moor Milagai", category: "vadagam", description: "Moor milagai.", shortDescription: "Moor milagai", sizes: ["100g"], tags: ["Spicy"], images: ["https://srivarahafoods.com/cdn/shop/files/SriVaraha-Foods-Mor-Milagai-Vathal-Sun-dried-Curd-Chillies-100g.webp?v=1750332055"], isBestseller: false, isSpicy: true },
   { id: "vadagam-115", name: "Chundakkai Vathal (Without Salt)", category: "vadagam", description: "Chundakkai vathal without salt.", shortDescription: "Chundakkai vathal without salt", sizes: ["100g"], tags: ["Fresh"], images: ["https://srivarahafoods.com/cdn/shop/files/SriVaraha-Foods-Sundakkai-Sundaikkai-Vathal-Chundakkai-Sun-dried-turkey-berry.webp?v=1750332051"], isBestseller: false },
@@ -846,7 +864,7 @@ export const products: Product[] = [
     shortDescription: "Kollu podi",
     sizes: ["100g"],
     tags: ["Fresh"],
-    images: ["https://www.sharmispassions.com/wp-content/uploads/2025/02/kollu-podi6.jpg"],
+    images: ["https://www.vidhyashomecooking.com/wp-content/uploads/2025/01/HomemadeKolluRasamPodi.jpg"],
     isBestseller: false,
   },
   {
@@ -963,7 +981,7 @@ export const products: Product[] = [
   { id: "nuts-112", name: "Green Pistah", category: "nuts", description: "Premium green pistah.", shortDescription: "Green pistah", sizes: ["100gms", "250gms", "500gms", "1kg"], tags: ["Fresh"], images: ["https://flourworks.in/wp-content/uploads/2023/11/Pista.jpeg"], isBestseller: false },
   { id: "nuts-113", name: "Dry Amla", category: "nuts", description: "Traditional dry amla.", shortDescription: "Dry amla", sizes: ["100gms", "250gms", "500gms", "1kg"], tags: ["Fresh"], images: ["https://d3kgrlupo77sg7.cloudfront.net/media/chococoorgspice.com/images/products/coorg-natural-dry-amla-sweet-amla-candy.20240409010243.webp"], isBestseller: false },
   { id: "nuts-114", name: "Dry Dates Seeded", category: "nuts", description: "Dry dates with seed.", shortDescription: "Dry dates seeded", sizes: ["100gms", "250gms", "500gms", "1kg"], tags: ["Fresh"], images: ["https://coachellasbestdates.com/cdn/shop/articles/shutterstock_1023735862.jpg?v=1651079724&width=1000"], isBestseller: false },
-  { id: "nuts-115", name: "Dry Dates Seedless", category: "nuts", description: "Seedless dry dates.", shortDescription: "Dry dates seedless", sizes: ["100gms", "250gms", "500gms", "1kg"], tags: ["Fresh"], images: ["https://aapkabazar.co/_next/image?url=https%3A%2F%2Fimage.aapkabazar.co%2Fproduct%2F1426%2F1769670520260.png%3Ftype%3Dpng&w=1080&q=75"], isBestseller: false },
+  { id: "nuts-115", name: "Dry Dates Seedless", category: "nuts", description: "Seedless dry dates.", shortDescription: "Dry dates seedless", sizes: ["100gms", "250gms", "500gms", "1kg"], tags: ["Fresh"], images: ["https://m.media-amazon.com/images/I/51IlJWOsCUL._AC_UF894,1000_QL80_.jpg"], isBestseller: false },
   { id: "nuts-116", name: "Walnuts", category: "nuts", description: "Premium walnuts.", shortDescription: "Premium walnuts", sizes: ["100gms", "250gms", "500gms", "1kg"], tags: ["Fresh"], images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGOAx89e8Pe8ByU3xSRsddjZVasGbsWahm_w&s"], isBestseller: false },
   { id: "nuts-117", name: "Mixed Nuts", category: "nuts", description: "Assorted mixed nuts.", shortDescription: "Assorted mixed nuts", sizes: ["100gms", "250gms", "500gms", "1kg"], tags: ["Fresh"], images: ["https://shawsimpleswaps.com/wp-content/uploads/2021/01/Roasted-Mixed-Nuts-1-2-480x270.jpg"], isBestseller: false },
   { id: "nuts-118", name: "Nuts with Honey", category: "nuts", description: "Mixed nuts coated with honey.", shortDescription: "Nuts with honey", sizes: ["100gms", "250gms", "500gms", "1kg"], tags: ["Fresh"], images: ["https://vitalcave.com/cdn/shop/files/Nuts_honey-almonds-chashew-pista-wallnuts-fig-in_500_ml_jar-vital_cave_organics.webp?v=1759421162"], isBestseller: false },
@@ -982,6 +1000,21 @@ export const products: Product[] = [
   { id: "snack-008", name: "Mango Bar", category: "snacks", description: "Sweet and tangy mango bar.", shortDescription: "Sweet mango bar", sizes: ["1pkt"], tags: ["Fresh"], images: ["https://goldenkaju.in/cdn/shop/files/51PeXUA8VPL.jpg?v=1705498156"], isBestseller: false },
   { id: "snack-009", name: "Eggless Brownie", category: "snacks", description: "Rich eggless brownie.", shortDescription: "Rich eggless brownie", sizes: ["50gms", "100gms"], tags: ["Fresh"], images: ["https://i.pinimg.com/736x/22/d0/2c/22d02c3cbb0b2ba46f0089b6c94821fa.jpg"], isBestseller: false },
   { id: "snack-010", name: "Naatuchakarai Millet Laddoos", category: "snacks", description: "Millet laddoos with naatuchakarai.", shortDescription: "Naatuchakarai millet laddoos", sizes: ["250g", "500g"], tags: ["Fresh"], images: ["https://humbleflavors.com/cdn/shop/files/Millet_Medley.jpg?v=1727527347"], isBestseller: false },
+  { id: "snack-011", name: "Ribbon Pakoda", category: "snacks", description: "Crispy ribbon pakoda.", shortDescription: "Ribbon pakoda", sizes: ["100gms", "250gms", "500gms", "1kg"], tags: ["Fresh"], images: ["https://rakskitchen.net/wp-content/uploads/2010/10/ola-pakoda-feat.jpg"], isBestseller: false },
+  { id: "snack-012", name: "Mixture", category: "snacks", description: "Traditional mixture.", shortDescription: "Traditional mixture", sizes: ["100gms", "250gms", "500gms", "1kg"], tags: ["Fresh"], images: ["https://rukminim2.flixcart.com/image/480/640/klwmufk0/snack-savourie/s/y/3/0-5-kerala-homemade-spicy-mixture-500-gm-vacuum-pack-safe-original-imagyxpex4stbhpf.jpeg?q=90"], isBestseller: false },
+  { id: "snack-013", name: "Omapodi", category: "snacks", description: "Crunchy omapodi.", shortDescription: "Crunchy omapodi", sizes: ["100gms", "250gms", "500gms", "1kg"], tags: ["Fresh"], images: ["https://www.indianhealthyrecipes.com/wp-content/uploads/2015/10/sev-recipe.jpg"], isBestseller: false },
+  { id: "snack-014", name: "Thenkuzhal Muruku", category: "snacks", description: "Crispy thenkuzhal muruku.", shortDescription: "Thenkuzhal muruku", sizes: ["100gms", "250gms", "500gms", "1kg"], tags: ["Fresh"], images: ["https://www.sharmispassions.com/wp-content/uploads/2011/10/thenkuzhal-murukku4.jpg"], isBestseller: false },
+  { id: "snack-015", name: "Manapari Muruku", category: "snacks", description: "Traditional manapari muruku.", shortDescription: "Manapari muruku", sizes: ["100gms", "250gms", "500gms", "1kg"], tags: ["Fresh"], images: ["https://www.greatindiansweets.com/wp-content/uploads/2022/09/Murukku-1.jpg"], isBestseller: false },
+
+  // SOUPS SECTION
+  { id: "soup-001", name: "Mudavatukal Soup / முடாவத்துக்கல் சூப்", category: "soups", description: "Herbal mudavatukal soup.", shortDescription: "Mudavatukal soup", sizes: ["250ml", "500ml"], tags: ["Fresh"], images: ["https://ueirorganic.com/cdn/shop/products/mudavattukalsoup-800x800_9b5d1c99-dcb5-4188-868d-bde27e327a89.jpg?v=1685773243&width=720"], isBestseller: false },
+  { id: "soup-002", name: "Mudakathan Soup / முடக்கத்தான் சூப்", category: "soups", description: "Herbal mudakathan soup.", shortDescription: "Mudakathan soup", sizes: ["250ml", "500ml"], tags: ["Fresh"], images: ["https://i.ytimg.com/vi/RlRfFMs1rXs/maxresdefault.jpg"], isBestseller: false },
+  { id: "soup-003", name: "Kadukai Soup / கடுக்காய் சூப்", category: "soups", description: "Herbal kadukai soup.", shortDescription: "Kadukai soup", sizes: ["250ml", "500ml"], tags: ["Fresh"], images: ["https://www.nehascookbook.com/wp-content/uploads/2022/10/Dudhi-soup-WS-1-500x500.jpg"], isBestseller: false },
+  { id: "soup-004", name: "Vallarai Soup / வல்லாரை சூப்", category: "soups", description: "Herbal vallarai soup.", shortDescription: "Vallarai soup", sizes: ["250ml", "500ml"], tags: ["Fresh"], images: ["https://kuuraii.com/cdn/shop/files/DSC02580.jpg?v=1728453298&width=1346"], isBestseller: false },
+  { id: "soup-005", name: "Pirandai Soup / பிரண்டை சூப்", category: "soups", description: "Herbal pirandai soup.", shortDescription: "Pirandai soup", sizes: ["250ml", "500ml"], tags: ["Fresh"], images: ["https://garuda.one/storage/product/97261/SDMSDE93NINP.webp"], isBestseller: false },
+  { id: "soup-006", name: "Thoothuvalai Soup / தூதுவளை சூப்", category: "soups", description: "Herbal thoothuvalai soup.", shortDescription: "Thoothuvalai soup", sizes: ["250ml", "500ml"], tags: ["Fresh"], images: ["https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjAaukuR5eYyJU-tvpJ7Ph1cwrumgRM_YIax2RkgYXOBhAIIjE9NO-MchOr_Z36Q8z3aq7ODMDsKRkhvCC6Nmbvx7qlUyUerypu8xZeCGPqPAXjJaMSZyt6AWTq447IlSjADxzbAjFSSohfIWPsP7NQxwVKbI1IU1O6sPtEWcs48U22HQAKr2rz9WtnUQ/w640-h480/Thuthuvalai-rasam-recipe-climbing-brijal-rasam-recipe-thoothuvalai-rasam-recipe.jpg"], isBestseller: false },
+  { id: "soup-007", name: "Manathakali Soup / மணத்தக்காளி சூப்", category: "soups", description: "Herbal manathakali soup.", shortDescription: "Manathakali soup", sizes: ["250ml", "500ml"], tags: ["Fresh"], images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeMig9Nh5PoZbx7BJs03iWl9XzQG-vXEoc6Q&s"], isBestseller: false },
+  { id: "soup-008", name: "Nellikai Soup / நெல்லிக்காய் சூப்", category: "soups", description: "Herbal nellikai soup.", shortDescription: "Nellikai soup", sizes: ["250ml", "500ml"], tags: ["Fresh"], images: ["https://img500.exportersindia.com/product_images/bc-500/2024/4/13205233/nellikai-soup-mix-1713337395-7387667.jpeg"], isBestseller: false },
 
   // SEEDS
   { id: "seed-001", name: "Pumpkin Seeds", category: "seeds", description: "Crunchy pumpkin seeds.", shortDescription: "Pumpkin seeds", sizes: ["100gms", "250gms", "500gms", "1kg"], tags: ["Fresh"], images: ["http://images.immediate.co.uk/production/volatile/sites/30/2023/03/Bowl-of-pumpkin-seeds-b4a5510.jpg"], isBestseller: false },
@@ -1020,14 +1053,15 @@ export const categories = [
   { id: "oils", name: "Maracheku Oils", description: "Cold-pressed oils", image: "https://5.imimg.com/data5/SELLER/Default/2021/11/SD/DB/XV/107877514/peanut-oil-500x500.jpg" },
   { id: "rice", name: "Parambariya Rice", description: "Native rice varieties", image: "https://www.rootsveyr.com/wp-content/uploads/2022/03/Traditional-Rice-1.jpg" },
   { id: "siruthaniyam", name: "Millets Category", description: "Traditional millet varieties", image: "https://5.imimg.com/data5/SELLER/Default/2023/4/304018249/BU/AF/BO/84627022/little-millet-samai-rice-500x500.jpg" },
-  { id: "sweeteners", name: "Brown Sugar & Vellam", description: "Natural sweeteners", image: "https://www.todaysdietitian.com/wp-content/uploads/2023/01/1022_SugarFeature.webp" },
+  { id: "sweeteners", name: "Brown Sugar & Paagu Vellam", description: "Natural sweeteners", image: "https://www.todaysdietitian.com/wp-content/uploads/2023/01/1022_SugarFeature.webp" },
   { id: "pooja", name: "Pooja Items", description: "Daily pooja essentials", image: "https://images.unsplash.com/photo-1605302977545-3a09913be1dd?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" },
+  { id: "soups", name: "Soups", description: "Herbal soups", image: "https://ueirorganic.com/cdn/shop/products/mudavattukalsoup-800x800_9b5d1c99-dcb5-4188-868d-bde27e327a89.jpg?v=1685773243&width=720" },
   { id: "spices", name: "Spices", description: "Aromatic blends", image: "/images/categories/spices.jpg" },
   { id: "podi", name: "Podi", description: "Traditional podi varieties", image: "https://mylaporeganapathys.com/wp-content/uploads/2025/05/angaya-podi.jpg" },
   { id: "healthmix", name: "Health Mix", description: "Wellness blends", image: "https://ik.imagekit.io/qbnsahjpu/assets/KKT%20Traders/image.png" },
   { id: "pickles", name: "Pickles", description: "Tangy & spicy", image: "/images/categories/pickles.jpg" },
   { id: "thokku", name: "Thokku", description: "Flavorful condiments", image: "/images/categories/thokku.jpg" },
-  { id: "vadagam", name: "Vadagam", description: "Crispy accompaniments", image: "/images/categories/vadagam.jpg" },
+  { id: "vadagam", name: "Vadagam", description: "Crispy accompaniments", image: "https://srivarahafoods.com/cdn/shop/files/Arisi-Rice-Koozh-Vadam-Vadagam-Vathal.webp?v=1750332109" },
   { id: "nuts", name: "Dry Fruits", description: "Premium dry fruits and nuts", image: "/images/categories/nuts.jpg" },
   { id: "seeds", name: "Seeds", description: "Healthy seed varieties", image: "https://www.nutshouse.in/wp-content/uploads/2023/07/1000243959.jpg" },
   { id: "organic", name: "Organic Items", description: "Natural daily essentials", image: "https://ootymade.com/cdn/shop/files/2_d5b25e56-446d-4b0f-969f-b69f45c3f453.webp?v=1716374565&width=1445" },
@@ -1044,5 +1078,85 @@ export const generateWhatsAppLink = (productName: string, size?: string) => {
 
 export const generateGeneralWhatsAppLink = () => {
   const message = "Hi! I'm interested in your homemade products. Please share your catalog. Also, I saw the Rs.10 discount per litre for oil and ghee when bringing my own container.";
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+};
+
+export const generateWhatsAppMessageLink = (message: string) =>
+  `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+export const formatProductQuantity = (value: string) => {
+  const raw = (value ?? "").toString().trim();
+  if (!raw) return "";
+
+  const normalized = raw.toLowerCase().replace(/\s+/g, "");
+
+  // 1000ml/1li -> 1 L
+  const mlOrLitreCombo = normalized.match(/^(\d+)ml\/(\d+)(l|li|ltr|litre|liter)$/);
+  if (mlOrLitreCombo) {
+    const litres = Number.parseInt(mlOrLitreCombo[2], 10);
+    if (Number.isFinite(litres) && litres > 0) return `${litres} L`;
+  }
+
+  // grams
+  const grams = normalized.match(/^(\d+)(g|gm|gms)$/);
+  if (grams) return `${Number.parseInt(grams[1], 10)} g`;
+
+  // kilograms
+  const kilograms = normalized.match(/^(\d+)(kg|kgs)$/);
+  if (kilograms) return `${Number.parseInt(kilograms[1], 10)} kg`;
+
+  // milliliters
+  const milliliters = normalized.match(/^(\d+)ml$/);
+  if (milliliters) return `${Number.parseInt(milliliters[1], 10)} ml`;
+
+  // liters
+  const litres = normalized.match(/^(\d+)(l|li|ltr|litre|liter)$/);
+  if (litres) return `${Number.parseInt(litres[1], 10)} L`;
+
+  // pieces
+  const pieces = raw
+    .trim()
+    .match(
+      /^(\d+)\s*(pcs|pc|piece|pieces|unit|units|bottle|bottles|bar|bars|pkt|pkts|pack|packs)$/i
+    );
+  if (pieces) {
+    const count = Number.parseInt(pieces[1], 10);
+    if (!Number.isFinite(count)) return raw;
+    return count === 1 ? "1 pc" : `${count} pcs`;
+  }
+
+  return raw;
+};
+
+export type WhatsAppCartLineItem = {
+  name: string;
+  size: string;
+  quantity: number;
+};
+
+export const generateWhatsAppCartLink = (items: WhatsAppCartLineItem[]) => {
+  const safeItems = items
+    .filter((i) => i && typeof i.name === "string" && typeof i.size === "string")
+    .map((i) => ({
+      name: i.name.trim(),
+      size: formatProductQuantity(i.size.trim()),
+      quantity:
+        typeof i.quantity === "number" && Number.isFinite(i.quantity)
+          ? Math.max(1, Math.floor(i.quantity))
+          : 1,
+    }))
+    .filter((i) => i.name.length > 0 && i.size.length > 0);
+
+  const lines = safeItems.map(
+    (item, idx) => `${idx + 1}. ${item.name} - ${item.size} x ${item.quantity}`
+  );
+
+  const message =
+    lines.length > 0
+      ? `Hi! I want to order the following items:\n\n${lines.join(
+          "\n"
+        )}\n\nPlease share availability and total.`
+      : "Hi! I want to place an order. Please share availability.";
+
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 };

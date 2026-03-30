@@ -4,6 +4,7 @@ import { Toaster } from '@/components/ui/sonner';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import { CartProvider } from '@/hooks/use-cart';
 import Home from '@/pages/Home';
 import Products from '@/pages/Products';
 import ProductDetails from '@/pages/ProductDetails';
@@ -22,24 +23,26 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <Router>
-      <ScrollToTop />
-      <div className="min-h-screen bg-[#F6F2EA]">
-        <Navbar />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/product/:id" element={<ProductDetails />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
-        <WhatsAppButton />
-        <Toaster position="top-center" />
-      </div>
-    </Router>
+    <CartProvider>
+      <Router>
+        <ScrollToTop />
+        <div className="min-h-screen bg-[#F6F2EA]">
+          <Navbar />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/products" element={<Products />} />
+              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </main>
+          <Footer />
+          <WhatsAppButton />
+          <Toaster position="top-center" />
+        </div>
+      </Router>
+    </CartProvider>
   );
 }
 

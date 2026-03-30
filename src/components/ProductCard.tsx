@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Flame, Star, Sparkles, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import type { Product } from '@/data/products';
-import { generateWhatsAppLink, BRAND_COLOR } from '@/data/products';
+import { BRAND_COLOR, formatProductQuantity, generateWhatsAppLink } from '@/data/products';
 
 interface ProductCardProps {
   product: Product;
@@ -13,8 +13,13 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   const [selectedSize, setSelectedSize] = useState(product.sizes[0]);
-  const [imageError, setImageError] = useState(false);
+  const [imageIndex, setImageIndex] = useState(0);
   const fallbackImage = "/images/kkt-traders-logo.png";
+
+  useEffect(() => {
+    setSelectedSize(product.sizes[0]);
+    setImageIndex(0);
+  }, [product.id, product.sizes]);
 
   const getTagIcon = (tag: string) => {
     switch (tag.toLowerCase()) {
@@ -47,13 +52,11 @@ const ProductCard = ({ product }: ProductCardProps) => {
       {/* Image */}
       <Link to={`/product/${product.id}`} className="block relative aspect-square overflow-hidden bg-[#F6F2EA]">
         <img
-          src={imageError ? fallbackImage : product.images[0]}
+          src={imageIndex >= product.images.length ? fallbackImage : product.images[imageIndex]}
           alt={product.name}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           onError={() => {
-            if (!imageError) {
-              setImageError(true);
-            }
+            setImageIndex((idx) => (idx < product.images.length ? idx + 1 : idx));
           }}
           loading="lazy"
           decoding="async"
@@ -98,7 +101,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
                     : 'border-gray-200 text-[#6E6A63] hover:border-[#2E5A3D]'
                 }`}
               >
-                {size}
+                {formatProductQuantity(size)}
               </button>
             ))}
           </div>
@@ -107,20 +110,26 @@ const ProductCard = ({ product }: ProductCardProps) => {
         {/* CTA */}
         <div className="flex items-center justify-end">
           <a
-            href={generateWhatsAppLink(product.name, selectedSize)}
+            href={generateWhatsAppLink(product.name, formatProductQuantity(selectedSize))}
             target="_blank"
             rel="noopener noreferrer"
             onClick={(e) => e.stopPropagation()}
           >
             <Button
+              type="button"
               size="sm"
-              className="text-white text-xs font-medium px-3 py-1.5 rounded-lg transition-all hover:scale-105"
+              className="text-xs font-medium px-3 py-1.5 rounded-lg text-white hover:opacity-95"
               style={{ backgroundColor: BRAND_COLOR }}
             >
               <MessageCircle className="w-3 h-3 mr-1" />
-              Order
+              Order Item
             </Button>
           </a>
+
+          {/*
+            Add to cart is temporarily hidden.
+            Keep the cart UI/code around for later re-enable.
+          */}
         </div>
       </div>
     </div>

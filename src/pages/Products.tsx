@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import ProductCard from '@/components/ProductCard';
-import { products, categories, BRAND_COLOR } from '@/data/products';
+import { products, categories, BRAND_COLOR, generateWhatsAppMessageLink } from '@/data/products';
 
 
 type SortOption = 'popular' | 'new';
@@ -39,6 +39,17 @@ const Products = () => {
   // Filter and sort products
   const filteredProducts = useMemo(() => {
     let result = [...products];
+
+    // Hide products that should not show under "All"
+    if (selectedCategory === 'all') {
+      result = result.filter((product) => !product.hideFromAll);
+    }
+
+    // If a product is meant to show only in one category, enforce it here.
+    result = result.filter(
+      (product) =>
+        !product.exclusiveCategory || product.exclusiveCategory === selectedCategory
+    );
 
     // Filter by search query
     if (searchQuery.trim()) {
@@ -252,6 +263,41 @@ const Products = () => {
             Showing {filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''}
           </p>
         </div>
+
+        {/* Wholesale Notices */}
+        {(selectedCategory === 'nuts' || selectedCategory === 'snacks') && (
+          <div className="mb-6">
+            <div className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <div>
+                <p className="font-semibold text-[#1A1A1A]">
+                  Wholesale available
+                </p>
+                {selectedCategory === 'nuts' ? (
+                  <p className="text-sm text-[#6E6A63]">
+                    Dry Fruits wholesale (10kg+). WhatsApp us for price and availability.
+                  </p>
+                ) : (
+                  <p className="text-sm text-[#6E6A63]">
+                    Snacks wholesale (5kg+). WhatsApp us for price and availability.
+                  </p>
+                )}
+              </div>
+              <a
+                href={generateWhatsAppMessageLink(
+                  selectedCategory === 'nuts'
+                    ? 'Hi! I want to buy Dry Fruits wholesale (10kg+). Please share price list and availability.'
+                    : 'Hi! I want to buy Snacks wholesale (5kg+). Please share price list and availability.'
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button className="text-white" style={{ backgroundColor: BRAND_COLOR }}>
+                  WhatsApp for wholesale
+                </Button>
+              </a>
+            </div>
+          </div>
+        )}
 
         {/* Products Grid */}
         {filteredProducts.length > 0 ? (

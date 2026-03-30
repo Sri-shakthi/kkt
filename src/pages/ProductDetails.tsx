@@ -1,17 +1,17 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { ArrowLeft, MessageCircle, Star, Flame, Sparkles, ChevronRight, Package, Clock, Check } from 'lucide-react';
+import { ArrowLeft, Star, Flame, Sparkles, ChevronRight, Package, Clock, Check, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 
-import { getProductById, getRelatedProducts, generateWhatsAppLink, BRAND_COLOR } from '@/data/products';
+import { getProductById, getRelatedProducts, BRAND_COLOR, formatProductQuantity, generateWhatsAppLink } from '@/data/products';
 import ProductCard from '@/components/ProductCard';
 
 const ProductDetails = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [selectedSize, setSelectedSize] = useState<string>('');
-  const [imageError, setImageError] = useState(false);
+  const [imageIndex, setImageIndex] = useState(0);
   const fallbackImage = "/images/kkt-traders-logo.png";
 
   const product = id ? getProductById(id) : undefined;
@@ -21,6 +21,7 @@ const ProductDetails = () => {
     window.scrollTo(0, 0);
     if (product) {
       setSelectedSize(product.sizes[0]);
+      setImageIndex(0);
     }
   }, [product]);
 
@@ -66,11 +67,6 @@ const ProductDetails = () => {
     }
   };
 
-  const handleOrder = () => {
-    const link = generateWhatsAppLink(product.name, selectedSize);
-    window.open(link, '_blank');
-  };
-
   return (
     <div className="min-h-screen bg-[#F6F2EA] pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -103,13 +99,11 @@ const ProductDetails = () => {
             <div className="relative">
               <div className="aspect-square rounded-2xl overflow-hidden bg-[#F6F2EA]">
                 <img
-                  src={imageError ? fallbackImage : product.images[0]}
+                  src={imageIndex >= product.images.length ? fallbackImage : product.images[imageIndex]}
                   alt={product.name}
                   className="w-full h-full object-cover"
                   onError={() => {
-                    if (!imageError) {
-                      setImageError(true);
-                    }
+                    setImageIndex((idx) => (idx < product.images.length ? idx + 1 : idx));
                   }}
                   loading="eager"
                   decoding="async"
@@ -161,7 +155,7 @@ const ProductDetails = () => {
                           : 'border-gray-200 text-[#6E6A63] hover:border-[#2E5A3D]'
                       }`}
                     >
-                      {size}
+                      {formatProductQuantity(size)}
                     </button>
                   ))}
                 </div>
@@ -169,18 +163,26 @@ const ProductDetails = () => {
 
               {/* Order Button */}
               <div className="mb-8">
-                <Button
-                  onClick={handleOrder}
-                  size="lg"
-                  className="w-full sm:w-auto text-white font-medium px-8 py-6 rounded-xl transition-all hover:scale-105 hover:shadow-lg text-base"
-                  style={{ backgroundColor: BRAND_COLOR }}
+                <a
+                  href={generateWhatsAppLink(product.name, formatProductQuantity(selectedSize))}
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <MessageCircle className="w-5 h-5 mr-2" />
-                  Order on WhatsApp
-                </Button>
-                <p className="text-sm text-[#6E6A63] mt-3">
-                  We&apos;ll reply with availability and order confirmation
-                </p>
+                  <Button
+                    type="button"
+                    size="lg"
+                    className="w-full sm:w-auto text-white font-medium px-8 py-6 rounded-xl transition-all hover:scale-105 hover:shadow-lg text-base"
+                    style={{ backgroundColor: BRAND_COLOR }}
+                  >
+                    <MessageCircle className="w-5 h-5 mr-2" />
+                    Order Item
+                  </Button>
+                </a>
+
+                {/*
+                  Add to cart is temporarily hidden.
+                  Keep the cart UI/code around for later re-enable.
+                */}
               </div>
 
               {/* Product Info */}
